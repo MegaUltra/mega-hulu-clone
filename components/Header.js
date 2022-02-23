@@ -4,7 +4,12 @@ import Image from "next/image"
 function Header () {
     return (
         <header className="">
-            <Image src='/images/logo-wide.png' width={200} height={55} />
+            <Image
+            className="object-contain" 
+            src='/images/logo-wide-white.png' 
+            width={200} 
+            height={55} 
+            />
         </header>
     )
 }
