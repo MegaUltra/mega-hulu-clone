@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Header from '../components/Header'
 import Image from 'next/image'
 
 const Home: NextPage = () => {
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
      <h1>Hiyee</h1>
 
      {/* Nav */}
+     <Header />
 
     </div>
   )
