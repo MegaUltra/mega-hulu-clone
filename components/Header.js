@@ -5,6 +5,7 @@ import Link from "next/link"
 
 
 function Header () {
+    
     return (
         <header className="flex flex-col sm:flex-row m-5 justify-between items-center h-auto">
             <div className="mx-10">
