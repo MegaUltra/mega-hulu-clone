@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -7,6 +9,10 @@ module.exports = {
     extend: {
       screens: {
         "3xl": "2000px",
+      },
+      fontFamily: {
+        sans: ['Comfortaa', ...defaultTheme.fontFamily.sans],
+        serif: ['Roboto', ...defaultTheme.fontFamily.serif],
       },
     },
   },

@@ -15,12 +15,13 @@ const YouTube: NextPage = ({ results }) => {
 const [currentVideo, setCurrentVideo] = useState(results[0])
 const [playing, setPlaying] = useState(false)
 
+console.log(results)
+
   return (
     <div className=''>
       <Head>
-        <title>Mega Ultra Studios</title>
-        <meta name="description" content="Mega Ultra Studios creates short and feature length films, promotional videos, and music videos. Let's make it weird." />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Short Films</title>
+        <meta name="description" content="Short films by Mega Ultra Studios" />
       </Head>
 
      <Header />
@@ -37,19 +38,24 @@ const [playing, setPlaying] = useState(false)
 {results &&
             results.map((video) => {
               return (
-                <div key={video.id} className="mx-4">
+                <div key={video.id} className="p-4 group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-x-105 hover:z-50"
+                onClick={() => {setCurrentVideo(video); setPlaying(true); scrollTop();}}
+                >
                   
                   <Image
                     src={video.snippet.thumbnails.maxres?.url ||  "https://via.placeholder.com/300"}
-                    layout="intrinsic"
-                    width={1280}
-                    height={720}
+                    layout="responsive"
+                    height={1080}
+                width={1920}
                     alt={video.snippet.title}
                   />
-                  <h5 className='font-sm text-left mb-2'>
+                  <div className="p-2">
+                  <h2 className='text-2xl text-white font-semibold transition-all duration-100 ease-in-out group-hover:font-bold'>
                     {video.snippet.title}
-                  </h5>
-                  <button className='px-4 py-1 text-center mx-auto my-4 bg-red-500 rounded-full' onClick={() => {setCurrentVideo(video); setPlaying(true); scrollTop();}}>Watch Now</button>
+                  </h2>
+                  <p>{new Date(video.snippet.publishedAt).toLocaleDateString('en-US', { year: 'numeric' })}</p>
+                  <p className="truncate text-ellipsis max-w-md mt-2">{video.snippet.description}</p>
+                  </div>
                 </div>
               );
             })}
