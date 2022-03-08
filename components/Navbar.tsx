@@ -28,9 +28,9 @@ function Navbar({ username }) {
   return (
     <div className="fixed text-white top-0 bg-gradient-to-b from-black to-transparent w-full z-50">
         {/**Logo Wrapper */}
-        <div className="flex px-4 py-5">
+        <div className="flex px-4 md:px-16 py-5">
                 <Link href="/">
-                    <a className="flex font-semibold items-center mb-4 px-2">
+                    <a className="flex font-semibold items-center mb-4 px-2 md:mb-0">
             <Image
             className="object-contain" 
             src='/images/logo-wide-white.png' 
@@ -41,20 +41,20 @@ function Navbar({ username }) {
             </a></Link>
         
        {/** NavItems */}
-        <ul className="flex flex-row w-1/2 ml-6 cursor-pointer">
-            <li className="font-bold mr-3" 
+        <ul className="flex flex-row w-1/2 ml-6 md:ml-12 cursor-pointer">
+            <li className="font-bold mr-3 lg:mr-5" 
             onClick={handleOnClickHome}>Home</li>
             <li
             onClick={handleOnClickHMyList}>My List</li>
         </ul>
 
 
-        <nav className="flex items-start ml-auto mr-10">
+        <nav className="flex items-start ml-auto mr-2 md:mr-6">
             <div>
                 <button className="flex items-center overflow-hidden text-white"
                 onClick={handleShowDropdown}>
                     
-                    <p className="text-lg">{username}</p>
+                    <p className="text-sm md:text-lg">{username}</p>
                     {/** icons */}
                     <ChevronDownIcon className="mx-1 h-4"/>
                 </button>
@@ -65,7 +65,7 @@ function Navbar({ username }) {
                        <a className="transition-all duration-200 rounded cursor-pointer hover:underline ">Sign Out</a>
                        </Link>
                        {/** Line Wrapper */}
-                       <div></div> 
+                       <div className="py-1"></div> 
                 </div>
             </div>
             )}
