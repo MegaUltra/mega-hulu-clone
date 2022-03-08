@@ -4,7 +4,9 @@
 
 @layer components {
   .btn {
-    @apply cursor-pointer text-white outline-none border-none font-bold rounded-md px-[2rem] mr-4 py-2 bg-orange-700 transition-all duration-500 hover:bg-purple-300 hover:text-black;
+    @apply cursor-pointer outline-none border-none font-bold flex justify-center items-center px-3 py-1 my-5 rounded-lg text-cyan-900 bg-yellow-300 transition-all duration-500 hover:bg-purple-400 hover:text-white;
+
+    /* rounded-md px-[2rem] mr-4 py-2 text-white bg-white */
   }
 }
 

@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Banner from '../components/Banner';
 import NetflixBanner from '../components/NetflixBanner';
 import NetflixHeder from '../components/NetflixHeder';
+import Navbar from '../components/Navbar';
 
 const Netflix: NextPage = ({ results }) => {
   return (
@@ -18,13 +19,13 @@ const Netflix: NextPage = ({ results }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-     <NetflixHeder />
+     {/* <NetflixHeder /> */}
+{/* 
+     <NetflixBanner title='Mega Ultra Studios' description="Mega Ultra Studios creates short and feature length films, promotional videos, and music videos. Let's make it weird." imgUrl='/images/background.jpg' /> */}
 
-     <NetflixBanner />
+     <Navbar username="poopins" />
 
-     {/* <Banner title='Test Title' subTitle='This is bustitle' imgUrl='/images/background.jpg' />
-      */}
-
+     <Banner title='Mega Ultra Studios' description="Mega Ultra Studios creates short and feature length films, promotional videos, and music videos. Let's make it weird." imgUrl='/images/background.jpg' />
 
     </div>
   )
