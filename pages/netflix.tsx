@@ -9,6 +9,8 @@ import Banner from '../components/Banner';
 import NetflixBanner from '../components/NetflixBanner';
 import NetflixHeder from '../components/NetflixHeder';
 import Navbar from '../components/Navbar';
+import Card from '../components/Card';
+import SectionCards from '../components/SectionCards';
 
 const Netflix: NextPage = ({ results }) => {
   return (
@@ -26,6 +28,12 @@ const Netflix: NextPage = ({ results }) => {
      <Navbar username="poopins" />
 
      <Banner title='Mega Ultra Studios' description="Mega Ultra Studios creates short and feature length films, promotional videos, and music videos. Let's make it weird." imgUrl='/images/background.jpg' />
+
+     {/* <Card title='Left for Dead' description="Tough girls with knives. Exploitation." date="2014" 
+     imgUrl='/images/lfd-thumb.jpg'
+     /> */}
+<SectionCards title='Short Films'/>
+
 
     </div>
   )
