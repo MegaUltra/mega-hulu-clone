@@ -12,7 +12,7 @@ function Banner( { title, description, imgUrl } ) {
     <div className="w-full h-screen relative">
      {/* <div className="w-full h-[90vh] md:h-[80vh] relative"> */}
         <div className="absolute w-full h-full z-10">
-        <div className="px-16  h-full flex flex-col justify-start mt-64 md:mt-32">
+        <div className="px-16  h-full flex flex-col justify-start mt-64 md:mt-32 ">
             {/* <div className="flex flex-col justify-start px-16 h-full mt-24 md:mt-32 md:w-2/3"> */}
                 <div className="flex">
                     <p className="text-4xl md:text-6xl text-red-400 font-extrabold">M</p>
@@ -29,7 +29,7 @@ function Banner( { title, description, imgUrl } ) {
             <span className='text-bold text-md md:text-lg lg:text-xl text-center mr-2'>Play</span>
             </button>
             </div>
-            <h2 className='mt-1 text-md md:text-2xl lg:text-4xl text-white stroke-slate-200'>{description}</h2>
+            <h2 className='mt-1 text-md md:text-2xl lg:text-4xl text-white stroke-slate-200 md:w-3/4'>{description}</h2>
             </div>
                 </div>
             </div>

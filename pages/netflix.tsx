@@ -11,8 +11,12 @@ import NetflixHeder from '../components/NetflixHeder';
 import Navbar from '../components/Navbar';
 import Card from '../components/Card';
 import SectionCards from '../components/SectionCards';
+import { getVideos } from '../lib/videos'
 
-const Netflix: NextPage = ({ results }) => {
+const Netflix: NextPage = ({  }) => {
+  const shortVideos = getVideos()
+
+
   return (
     <div className=''>
       <Head>
@@ -32,7 +36,7 @@ const Netflix: NextPage = ({ results }) => {
      {/* <Card title='Left for Dead' description="Tough girls with knives. Exploitation." date="2014" 
      imgUrl='/images/lfd-thumb.jpg'
      /> */}
-<SectionCards title='Short Films'/>
+<SectionCards title='Short Films' videos={shortVideos} />
 
 
     </div>
