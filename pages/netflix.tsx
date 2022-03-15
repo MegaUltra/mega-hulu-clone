@@ -13,10 +13,19 @@ import Card from '../components/Card';
 import SectionCards from '../components/SectionCards';
 import { getVideos } from '../lib/videos'
 
-const Netflix: NextPage = ({  }) => {
-  const shortVideos = getVideos()
+//Server side render
 
+export async function getServerSideProps() {
+  const shortVideos = await getVideos()
+  // Fetch data from external API
+  // const res = await fetch(`https://.../data`)
+  // const data = await res.json()
 
+  // Pass data to the page via props
+  return { props: { shortVideos } }
+}
+
+const Netflix: NextPage = ({ shortVideos }) => {
   return (
     <div className=''>
       <Head>
@@ -45,20 +54,5 @@ const Netflix: NextPage = ({  }) => {
 
 export default Netflix;
 
-//Server side render
-// export async function getServerSideProps(context) {
-//   const genre = context.query.genre;
 
-//   const request = await fetch(
-//     `https://api.themoviedb.org/3${
-//       requests[genre]?.url || requests.fetchTrending.url
-//     }`
-//   ).then((res) => res.json());
-
-//   return {
-//     props: {
-//       results: request.results,
-//     },
-//   };
-// }
 
