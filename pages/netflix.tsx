@@ -41,7 +41,7 @@ const Netflix: NextPage = ({ shortVideos, featureVideos, musicVideos, promoVideo
      {/* <NetflixHeder /> */}
 {/* 
      <NetflixBanner title='Mega Ultra Studios' description="Mega Ultra Studios creates short and feature length films, promotional videos, and music videos. Let's make it weird." imgUrl='/images/background.jpg' /> */}
-
+<main className='pb-16'>
      <Navbar username="poopins" />
 
      <Banner title='Mega Ultra Studios' description="Mega Ultra Studios creates short and feature length films, promotional videos, and music videos. Let's make it weird." imgUrl='/images/background.jpg' />
@@ -54,7 +54,7 @@ const Netflix: NextPage = ({ shortVideos, featureVideos, musicVideos, promoVideo
 <SectionCards title='Music Videos' videos={musicVideos} />
 <SectionCards title='Promotional Videos' videos={promoVideos} />
 <SectionCards title='Live Performances' videos={liveVideos} />
-
+</main>
     </div>
   )
 }
