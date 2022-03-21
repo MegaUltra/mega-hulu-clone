@@ -4,23 +4,40 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Router from 'next/router'
 import { useState } from 'react'
+import magic from '../lib/magic-client'
 
 const Login: NextPage = ({  }) => {
-    const handleLoginWithEmail = (e) => {
+    const handleLoginWithEmail = async (e) => {
         console.log("Hi Button")
         e.preventDefault()
+        
 
         if (email) {
             if (email ==="dwmyke@gmail.com") {
                 // route to dashboard
-            Router.push("/")
+            // 
+            try {
+                setIsLoading(true)
+                const didToken = await magic.auth.loginWithMagicLink({ email, });
+                console.log({ didToken });
+                if (didToken) {
+                    setIsLoading(false)
+                    Router.push("/")
+                }
+              } catch (error) {
+                // Handle errors if required!
+                console.error('Abort! Abort!', error);
+                setIsLoading(false)
+              }
             } else {
                 setUserMsg("I'm so confused")
+                setIsLoading(false)
             }
 
         } else {
 // show user message
 setUserMsg("Enter a valid email address")
+setIsLoading(false)
         }
     }
 
@@ -28,6 +45,8 @@ setUserMsg("Enter a valid email address")
     const [email, setEmail] = useState('')
 
     const [userMsg, setUserMsg] = useState('')
+
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleOnChangeEmail = (e) => {
         setUserMsg("")
@@ -82,7 +101,7 @@ setUserMsg("Enter a valid email address")
             <p className='text-white my-2'>{userMsg}</p>
 
             <button className='bg-purple-600 px-12 py-2 text-lg text-white w-full rounded-lg mt-6 border-yellow-700 border hover:border-yellow-300' onClick={handleLoginWithEmail}>
-                Sign In
+                {isLoading ? "Loading..." : "Sign In"}
             </button>
             </div>
             

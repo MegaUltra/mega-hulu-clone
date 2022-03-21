@@ -13,6 +13,7 @@ import Card from '../components/Card';
 import SectionCards from '../components/SectionCards';
 import { getVideos } from '../lib/videos'
 
+
 //Server side render
 
 export async function getServerSideProps() {
@@ -30,6 +31,8 @@ export async function getServerSideProps() {
 }
 
 const Netflix: NextPage = ({ shortVideos, featureVideos, musicVideos, promoVideos, liveVideos }) => {
+
+
   return (
     <div className=''>
       <Head>
