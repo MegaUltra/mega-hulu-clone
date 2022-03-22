@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Router from 'next/router'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import magic from '../lib/magic-client'
 
 const Login: NextPage = ({  }) => {
@@ -21,7 +21,7 @@ const Login: NextPage = ({  }) => {
                 const didToken = await magic.auth.loginWithMagicLink({ email, });
                 console.log({ didToken });
                 if (didToken) {
-                    setIsLoading(false)
+
                     Router.push("/")
                 }
               } catch (error) {
@@ -47,6 +47,25 @@ setIsLoading(false)
     const [userMsg, setUserMsg] = useState('')
 
     const [isLoading, setIsLoading] = useState(false)
+
+    useEffect(() => {
+        const handleComplete = () => {
+            setIsLoading(false)
+        } 
+      Router.events.on(`routeChangeComplete`,
+      handleComplete)
+      Router.events.on(`routeChangeError`,
+      handleComplete)
+    
+    
+      return () => {
+        Router.events.off(`routeChangeComplete`,
+        handleComplete)
+        Router.events.off(`routeChangeError`,
+        handleComplete)
+      }
+    }, [Router])
+    
 
     const handleOnChangeEmail = (e) => {
         setUserMsg("")

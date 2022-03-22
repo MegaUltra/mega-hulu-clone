@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from "next/image"
 import { useState } from 'react'
 import Header from '../components/Header'
+import Loading from '../components/Loading'
 import Nav from '../components/Nav'
 import { YoutubeVideoPlayer } from '../components/youtubePlayer'
 
@@ -27,8 +28,10 @@ console.log(results)
      <Header />
 
      <Nav />
+
 <div className='w-full mx-auto my-4'>
   <h1 className='my-8 text-center'>Test</h1>
+  <Loading></Loading>
   <div className='max-w-3xl mx-auto p-4 rounded-2xl shadow-2xl my-8'>
      <YoutubeVideoPlayer id={currentVideo.snippet.resourceId.videoId}
      playing={playing} />

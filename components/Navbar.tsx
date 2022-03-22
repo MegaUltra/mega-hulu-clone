@@ -1,13 +1,47 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ChevronDownIcon } from "@heroicons/react/solid"
+import { magic } from "../lib/magic-client"
 
-function Navbar({ username }) {
+function Navbar({ }) {
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [username, setUsername] = useState("");
     const router = useRouter()
 
-    const [showDropdown, setShowDropdown] = useState(false)
+
+        useEffect(() => {
+            const fetchUsername = async () => {
+            try {
+                const { email } = await magic.user.getMetadata();
+                if (email) {
+                setUsername(email);
+                }
+              } catch(error) {
+                // Handle errors if required!
+                console.error("Your email does not email", error)
+              }
+}
+fetchUsername
+        }, [])
+        
+
+    // useEffect(() => {
+    //     ;(async () => {
+    //         try {
+    //             const { email } = await magic.user.getMetadata();
+    //             if (email) {
+    //             setUsername(email);
+    //             }
+    //           } catch(error) {
+    //             // Handle errors if required!
+    //             console.error("Your email does not email", error)
+    //           }
+    //     })()
+    //     // Assumes a user is already logged in
+
+    // }, []);
 
     const handleOnClickHome = (e) => {
         e.preventDefault()
@@ -22,6 +56,19 @@ function Navbar({ username }) {
     const handleShowDropdown = (e) => {
         e.preventDefault()
         setShowDropdown(!showDropdown)
+    }
+
+    const handleSignout = async (e) => {
+        e.preventDefault()
+
+        try {
+            await magic.user.logout()
+            console.log(await magic.user.isLoggedIn())
+            router.push('/login')
+        } catch (error) {
+            console.error("Errors in logging out. It's crazy", error)
+            router.push('/login')
+        }
     }
 
 
@@ -63,9 +110,11 @@ function Navbar({ username }) {
 {/** Dropdown */}
 {showDropdown && (<div className="text-sm md:text-md absolute ml-auto mt-2 p-2 bg-black text-white rounded border border-blue-600 shadow-lg">
                     <div>
-                        <Link href='/login'>
-                       <a className="transition-all duration-200 rounded cursor-pointer hover:underline ">Sign Out</a>
-                       </Link>
+
+                       <a
+                       onClick={handleSignout} 
+                       className="transition-all duration-200 rounded cursor-pointer hover:underline ">Sign Out</a>
+
                        {/** Line Wrapper */}
                        <div className="py-1"></div> 
                 </div>
