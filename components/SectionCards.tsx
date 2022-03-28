@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Card from "./Card"
 
 
@@ -12,7 +13,10 @@ function SectionCards({ title, videos = [] }) {
         <div className="flex space-x-6 overflow-y-hidden overflow-x-scroll scrollbar-hide p-2 -m-2">
             
         {videos.map((video, idx) =>{
-                return <Card id={idx} imgUrl={video.imgUrl} title={video.title} description={video.description} date={video.date}/>
+                return 
+                <Link href={`/video/{videoId}`}>
+                <Card id={idx} imgUrl={video.imgUrl} title={video.title} description={video.description} date={video.date}/>
+                </Link>
         })}
         </div>
         </section>

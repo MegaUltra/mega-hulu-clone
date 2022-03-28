@@ -48,7 +48,9 @@ const Home: NextPage = ({ shortVideos, featureVideos, musicVideos, promoVideos, 
 <main className='pb-16'>
      <Navbar username="poopins" />
      
-     <Banner title='Mega Ultra Studios' description="Mega Ultra Studios creates short and feature length films, promotional videos, and music videos. Let's make it weird." imgUrl='/images/background.jpg' />
+     <Banner 
+     videoId="490aKBEbxEA"
+     title='Mega Ultra Studios' description="Mega Ultra Studios creates short and feature length films, promotional videos, and music videos. Let's make it weird." imgUrl='/images/background.jpg' />
 
      {/* <Card title='Left for Dead' description="Tough girls with knives. Exploitation." date="2014" 
      imgUrl='/images/lfd-thumb.jpg'

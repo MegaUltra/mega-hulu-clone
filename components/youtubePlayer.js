@@ -7,10 +7,11 @@ const YoutubeVideoPlayer = (props) => {
     const url = `https://www.youtube.com/watch?v=${id}`;
 
     return (
-        <div className="relative" style={{paddingTop: '56.25%'}}>
+        <div className="relative pt-[56.25%]">
             <ReactPlayer
             url={url}
             playing={playing}
+            controls={true}
             width="100%"
         height="100%"
         className="absolute inset-0 w-full h-full"
